@@ -31,14 +31,32 @@
 </head>
 
 <body>
- <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
-<script type="module">
-	import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+ <header>
+		<h1>👋 Welcome to AR Assist</h1>
+		<p>Your intelligent AI assistant powered by n8n workflows.</p>
+	</header>
 
-	createChat({
-		webhookUrl: 'http://localhost:5678/webhook/0d67ae81-3b58-4d8c-8ef1-029be3a263c9/chat'
-	});
-</script>
+	<div id="n8n-chat"></div>
+
+	<script type="module">
+		import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+		createChat({
+			webhookUrl: 'http://localhost:5678/webhook/0d67ae81-3b58-4d8c-8ef1-029be3a263c9/chat', // Replace with your actual webhook
+			initialMessages: [
+				'Hello! 👋',
+				'I’m AR Assist — how can I help you today?'
+			],
+			i18n: {
+				en: {
+					title: 'Welcome to AR Assist 👋',
+					subtitle: "Ask me anything. I'm available 24/7.",
+					inputPlaceholder: 'Type your message here...',
+					getStarted: 'Start Chatting',
+				}
+			}
+		});
+	</script>
 
 <!--emb-->
 <meta property="og:type" content="website">
